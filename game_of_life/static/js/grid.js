@@ -64,12 +64,15 @@ function gridCreation(rows, cols) {
             for (var c = 0; c < cols; ++c) {
                 var cell = tr.appendChild(document.createElement('td'));
 
-                var width = Math.round(1200 / cols);
+                var width = Math.round(700 / cols);
 
-                $(cell).css('width', width);
-                $(cell).css('height', width);
+                var filler = $('<div></div>');
+                filler.css('height', width);
+                filler.css('width', width);
+
+                $(cell).append(filler);
+
                 $(cell).attr('id', r + '_' + c);
-                // cell.innerHTML = ++i;
                 cell.addEventListener('click', (function (el, r, c, i) {
                     return function () {
                         callback(el, r, c, i);
