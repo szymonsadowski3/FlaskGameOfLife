@@ -1,9 +1,15 @@
 var CURRENT_GRID = [];
+var PLAY_INTERVAL;
+var INTERVAL_RUNNING = false;
+
+function stopPlayInterval() {
+    INTERVAL_RUNNING = false;
+    clearInterval(PLAY_INTERVAL);
+    $("#play_button").removeClass('red');
+}
 
 $(document).ready(function () {
-    $(".button-collapse").sideNav();
-
-    $("#step_button").click(function () {
+    function step() {
         $.ajax("/next_grid", {
             data: JSON.stringify({"grid": CURRENT_GRID}),
             contentType: 'application/json',
@@ -12,6 +18,30 @@ $(document).ready(function () {
             update_view(updated_grid);
             CURRENT_GRID = updated_grid;
         });
+    }
+
+    $(".button-collapse").sideNav();
+
+    $("#step_button").click(step);
+
+    $("#play_button").click(function () {
+        if (!INTERVAL_RUNNING) {
+            var delay = $("#step_delay").val() * 1000;
+
+            PLAY_INTERVAL = setInterval(function () {
+                step();
+            }, delay);
+
+            INTERVAL_RUNNING = true;
+
+            $(this).addClass('red');
+        } else {
+            stopPlayInterval();
+        }
+    });
+
+    $("#stop_button").click(function () {
+        stopPlayInterval();
     });
 });
 
@@ -66,11 +96,10 @@ function gridCreation(rows, cols) {
             for (var c = 0; c < cols; ++c) {
                 var cell = tr.appendChild(document.createElement('td'));
 
-                var width = Math.round(768 / cols);
+                // var width = Math.round(768 / cols);
 
                 var filler = $('<div></div>');
-                filler.css('height', width);
-                filler.css('width', width);
+                filler.addClass("filler");
 
                 $(cell).append(filler);
 

@@ -63,7 +63,30 @@ table.grid {
     margin-right: auto;
 }
 
-@media screen and (max-width: 1150px) {
+.center-panel {
+    max-width: 360px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.d-inline {
+    display: inline-block;
+}
+
+.ml {
+    margin-left: 20px;
+}
+
+#step_delay {
+    margin-bottom: 0px;
+}
+
+#test1 {
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+@media screen and (max-width: 1300px) {
     .grid td {
         display: table-cell;
     }

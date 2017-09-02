@@ -17,7 +17,7 @@ def hello_world():
 def serve_grid():
     rows = request.args.get('rows')
     cols = request.args.get('cols')
-    return render_template('index.html', rows=rows, cols=cols)
+    return render_template('index.html', rows=rows, cols=cols, filler_width=int(830/int(rows)))
 
 
 @app.route('/next_grid', methods=['POST'])

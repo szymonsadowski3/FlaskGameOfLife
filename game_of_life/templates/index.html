@@ -2,23 +2,59 @@
 <html>
 <head>
     <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/materialize.css') }}"
-    media="screen,projection"/>
+          media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/grid.css') }}"
           media="screen,projection"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        .filler {
+            width: {{ filler_width }}px;
+            height: {{ filler_width }}px;
+        }
+
+
+    </style>
 </head>
 <body>
 {% include "nav.html" %}
 
 <div id="container" class="container">
-{% include "settings.html" %}
+    {% include "settings.html" %}
 
 
     <h3 class="center-align">Grid</h3>
-    <button class="btn btn-center" type="submit" name="action" id="step_button">Step
-        <i class="material-icons right">send</i>
-    </button>
+
+    {#    <button class="btn btn-center" type="submit" name="action" id="step_button">Step#}
+    {#        <i class="material-icons right">send</i>#}
+    {#    </button>#}
+
+    <ul class="tabs tab-demo z-depth-1 center-panel">
+        <li class="tab"><a href="#test1">Step</a></li>
+        <li class="tab"><a href="#test2">Play</a></li>
+    </ul>
+    <div id="test1" class="col s12">
+        <button class="btn btn-center" type="submit" name="action" id="step_button">Step
+            <i class="material-icons right">send</i>
+        </button>
+    </div>
+
+    <div id="test2" class="col s12 center-align">
+        <button class="btn btn-center d-inline" type="submit" name="action" id="play_button">Play
+            <i class="material-icons right">send</i>
+        </button>
+
+        <div class="input-field d-inline ml">
+          <input value="0.1" id="step_delay" type="number" class="validate" step="0.1">
+          <label for="first_name">Delay between steps (s)</label>
+        </div>
+
+        <button class="btn btn-center d-inline ml" type="submit" name="action" id="stop_button">Stop
+            <i class="material-icons right">stop</i>
+        </button>
+    </div>
+
+
     <div id="table-wrapper">
         <div id="table-scroll">
         </div>
