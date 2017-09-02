@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/grid.css') }}"
-          media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/materialize.css') }}"
+    media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/grid.css') }}"
           media="screen,projection"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -11,12 +11,12 @@
 <body>
 {% include "nav.html" %}
 
+<div id="container" class="container">
 {% include "settings.html" %}
 
 
-<div id="container" class="container">
-    <h3>Grid</h3>
-    <button class="btn" type="submit" name="action" id="step_button">Step
+    <h3 class="center-align">Grid</h3>
+    <button class="btn btn-center" type="submit" name="action" id="step_button">Step
         <i class="material-icons right">send</i>
     </button>
     <div id="table-wrapper">

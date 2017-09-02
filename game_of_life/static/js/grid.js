@@ -1,6 +1,8 @@
 var CURRENT_GRID = [];
 
 $(document).ready(function () {
+    $(".button-collapse").sideNav();
+
     $("#step_button").click(function () {
         $.ajax("/next_grid", {
             data: JSON.stringify({"grid": CURRENT_GRID}),
@@ -58,13 +60,13 @@ function gridCreation(rows, cols) {
     function clickableGrid(rows, cols, callback) {
         var i = 0;
         var grid = document.createElement('table');
-        grid.className = 'grid';
+        grid.className = 'grid center-align';
         for (var r = 0; r < rows; ++r) {
             var tr = grid.appendChild(document.createElement('tr'));
             for (var c = 0; c < cols; ++c) {
                 var cell = tr.appendChild(document.createElement('td'));
 
-                var width = Math.round(700 / cols);
+                var width = Math.round(768 / cols);
 
                 var filler = $('<div></div>');
                 filler.css('height', width);
