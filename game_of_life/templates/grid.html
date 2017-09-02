@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/grid.css') }}" media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+
+{% include "nav.html" %}
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/grid.js') }}"></script>
+<script>
+    $(document).ready(function () {
+        gridCreation({{ rows }}, {{ cols }});
+    })
+</script>
+</body>
+</html>
