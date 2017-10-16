@@ -18,4 +18,4 @@ Which means, application could be viewed under this url:
 
 ## Screenshots
 
-![alt text](src.png "Description goes here")
+![screenshot](https://raw.githubusercontent.com/szymonsadowski3/FlaskGameOfLife/master/scr.png "Description goes here")
