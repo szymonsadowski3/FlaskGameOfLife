@@ -10,7 +10,7 @@ simulator = GameOfLifeSimulator()
 
 @app.route('/')
 def hello_world():
-    return render_template('index.html', rows=10, cols=10)
+    return render_template('index.html', rows=10, cols=10, filler_width=83)
 
 
 @app.route('/grid')
